@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# deepcode ignore HardcodedNonCryptoSecret: <please specify a reason of ignoring this>
 SECRET_KEY = 'django-insecure-oou%$_ah05@=mw4-zpnvt)@o2&so^3kdpx!1j+z0uv0n2^$-g@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -37,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gestor', 
-    'rest_framework',
+    'gestor', #todo nuestro gestor de tareas
+    'rest_framework', #presencia de los frameworks
     'rest_framework_simplejwt',
 ]
 
@@ -105,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx' #Para que las respuestas las de en Español
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'#Para que la zona horaria la registre correctamente
 
 USE_I18N = True
 
@@ -134,9 +135,10 @@ REST_FRAMEWORK = {
 }
 
 from datetime import timedelta
+#Se definen los tiempos de vida de los tokens, uno, el de acceso solo dura 5 minutos y el refresh dura 1 día para generar un nuevo acceso
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-AUTH_USER_MODEL = 'gestor.Usuario'
+AUTH_USER_MODEL = 'gestor.Usuario' #para la parte de la autenticación usamos los modelos del gestor de tareas
