@@ -24,7 +24,7 @@ API RESTful para gestión de usuarios y tareas con:
    python3 -m venv venv
    source venv/bin/activate
 
-4. Instala las dependecias
+4. Instala las dependencias
    pip install -r requirements.txt
 
 5. Al ser una prueba puedes ya proceder a aplicar migraciones y recolectar estáticos que no serviran en estos pasos que es para ejecutar localmente
