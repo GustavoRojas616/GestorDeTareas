@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gestor', #todo nuestro gestor de tareas
     'rest_framework', #presencia de los frameworks
     'rest_framework_simplejwt',
+    'drf_yasg', #la herramienta que nos servirá como generador de Swagger
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    #Paginación
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,   
 }
 
 from datetime import timedelta
